@@ -63,7 +63,7 @@ jobs:
             ImmortalWrt/feeds.conf.default
             ImmortalWrt/.config
 
-      - run: echo abc > ImmortalWrt/bin/targets/abc.txt
+      - run: mkdir -p ImmortalWrt/bin/targets && echo abc > ImmortalWrt/bin/targets/abc.txt
 
       - name: 上传编译结果到 Artifact (Upload build result to Artifact)
         uses: actions/upload-artifact@v4
