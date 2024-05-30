@@ -88,22 +88,6 @@ jobs:
           name: ImmortalWrt-build-result
           path: ImmortalWrt/bin/targets
 
-      - name: 打包编译结果 (Package build result)
-        run: zip -r ImmortalWrt-build-result.zip ImmortalWrt/bin/targets
-
-      - name: 创建 Tag (Create Tag)
-        uses: rickstaa/action-create-tag@v1.7.2
-        with:
-          tag: v1.0.0
-          force_push_tag: true
-
-      - name: 上传编译结果到 Release (Upload build result to Release)
-        uses: ncipollo/release-action@v1.14.0
-        with:
-          allowUpdates: true
-          artifacts: ImmortalWrt-build-result.zip
-          tag: v1.0.0
-
   build-ssh:
     if: ${{inputs.ssh == true}}
     name: 🚀 编译 (Build) - SSH
@@ -150,19 +134,3 @@ jobs:
         with:
           name: ImmortalWrt-build-result
           path: ImmortalWrt/bin/targets
-
-      - name: 打包编译结果 (Package build result)
-        run: zip -r ImmortalWrt-build-result.zip ImmortalWrt/bin/targets
-
-      - name: 创建 Tag (Create Tag)
-        uses: rickstaa/action-create-tag@v1.7.2
-        with:
-          tag: v1.0.0
-          force_push_tag: true
-
-      - name: 上传编译结果到 Release (Upload build result to Release)
-        uses: ncipollo/release-action@v1.14.0
-        with:
-          allowUpdates: true
-          artifacts: ImmortalWrt-build-result.zip
-          tag: v1.0.0
